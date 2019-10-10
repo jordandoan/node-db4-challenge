@@ -30,7 +30,8 @@ exports.up = function(knex, Promise) {
       .onDelete('CASCADE');
     tbl.decimal('quantity')
       .unsigned()
-      .notNullable()
+      .notNullable();
+    tbl.primary(['recipe_id', 'ingredient_id']);
   })
   .createTable('steps', tbl => {
     tbl.increments();
